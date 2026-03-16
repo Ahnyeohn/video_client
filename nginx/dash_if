@@ -1,0 +1,36 @@
+server {
+    listen 8086;
+    server_name _;
+
+    root /home/n2sl/yeon/metric/video_client/dash.js;
+    index samples/dash-if-reference-player/index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # (선택) 개발 중 캐시 끄기
+    location ~* \.html$ {
+        add_header Cache-Control "no-cache" always;
+    }
+}
+
+server {
+    listen 8087 ssl;
+    server_name _;
+
+    ssl_certificate     /home/n2sl/yeon/metric/ssl/dev.crt;
+    ssl_certificate_key /home/n2sl/yeon/metric/ssl/dev.key;
+
+    root /home/n2sl/yeon/metric/video_client/dash.js;
+    index samples/dash-if-reference-player/index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    location ~* \.(html|js|css)$ {
+        add_header Cache-Control "no-cache" always;
+    }
+}
+

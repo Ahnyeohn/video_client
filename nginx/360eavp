@@ -1,0 +1,38 @@
+server {
+  listen 80;
+  server_name _;
+
+  root /home/n2sl/yeon/metric/video_client/360EAVP;
+  index Index.html;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  location ~* \.(mpd|m4s|mp4|webm)$ {
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Methods "GET, HEAD, OPTIONS";
+  }
+}
+
+server {
+  listen 8080 ssl;
+  server_name _;
+
+  ssl_certificate     /home/n2sl/yeon/metric/ssl/dev.crt;
+  ssl_certificate_key /home/n2sl/yeon/metric/ssl/dev.key;
+
+  root /home/n2sl/yeon/metric/video_client/360EAVP;
+  index Index.html;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  location ~* \.(mpd|m4s|mp4|webm)$ {
+    add_header Access-Control-Allow-Origin *;
+    add_header Access-Control-Allow-Methods "GET, HEAD, OPTIONS";
+  }
+}
+
+
