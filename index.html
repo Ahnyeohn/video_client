@@ -94,15 +94,20 @@
   <iframe id="playerFrame" src="" title="플레이어"></iframe>
 
   <script>
-    const SRC_DASH = "https://10.20.13.157:8442"; 
-    const SRC_HLS = "https://10.20.13.157:8440"; 
-    const SRC_360 = "https://10.20.13.157:443/#/player";
     let CONFIG = null;
+    let SRC_DASH = "";
+    let SRC_HLS = "";
+    let SRC_360 = "";
 
     async function loadConfig() {
       const res = await fetch('./config.json', { cache: 'no-store' });
       if (!res.ok) throw new Error(`config.json load failed: ${res.status}`);
       CONFIG = await res.json();
+
+      SRC_DASH = CONFIG.players.dash.src;
+      SRC_HLS  = CONFIG.players.hls.src;
+      SRC_360  = CONFIG.players.v360.src;
+
       return CONFIG;
     }
 
