@@ -2,7 +2,7 @@
   "players": {
     "dash": { "src": "https://10.20.13.157:8087/" },
     "v360": { "src": "https://10.20.13.157:8080/#/player" },
-    "hls":  { "src": "https://10.20.13.157:8440" } 
+    "hls":  { "src": "https://10.20.13.157:8085" } 
   },
   "experiments": [
     {

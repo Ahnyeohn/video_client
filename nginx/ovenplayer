@@ -1,0 +1,15 @@
+server {
+    listen 8085 ssl;
+   
+    server_name _;
+
+    ssl_certificate     /home/n2sl/yeon/metric/ssl2/dev.crt;
+    ssl_certificate_key /home/n2sl/yeon/metric/ssl2/dev.key;
+
+    root /home/n2sl/yeon/metric/OvenPlayer/demo;
+    index demo.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
