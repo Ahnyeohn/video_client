@@ -1,6 +1,6 @@
 {
   "players": {
-    "dash": { "src": "https://10.20.13.157:8442/samples/dash-if-reference-player/" },
+    "dash": { "src": "https://10.20.13.157:8442/" },
     "v360": { "src": "https://10.20.13.157:443/#/player" },
     "hls":  { "src": "https://10.20.13.157:8440" }
   },

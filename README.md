@@ -5,4 +5,3 @@ nginx 내의 설정 파일들을 전부 서버 경로의 /etc/nginx/sites-enable
 sudo nginx -t
 sudo systemctl reload nginx 
 위 명령어 사용
-
