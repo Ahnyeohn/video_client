@@ -1,27 +1,45 @@
-nginx setting
+# Nginx 설정 및 VOD 구성 가이드
 
-nginx 내의 설정 파일들을 전부 서버 경로의 /etc/nginx/sites-enabled 에다가 복사하고,
-이 설정파일을 반영하려면,
-sudo nginx -t
-sudo systemctl reload nginx 
-위 명령어 사용
+## 🔧 Nginx 설정 반영 방법
+1. 모든 설정 파일을 서버 경로 `/etc/nginx/sites-enabled` 에 복사
+2. 설정 반영 명령어 실행:
+   ```bash
+   sudo nginx -t
+   sudo systemctl reload nginx
+   ```
 
+---
 
-바꿔야 할 사항들:
-1) nginx 설정 파일 내용들 (root 경로 등...)
-2) config.json에 있는 players의 각 url들
+## 📌 바꿔야 할 사항들
+1. **Nginx 설정 파일**
+   - `root` 경로 등 필요한 부분 수정
 
-   만약 자동실험까지 필요하다면, experiments에 있는 각 videoUrl도 수정
+2. **config.json**
+   - `players`의 각 `url` 수정
+   - 필요 시 `experiments`의 `videoUrl`도 수정
+   - ⚠️ 반드시 **nginx 설정 파일의 port와 config.json의 url port를 일치시켜야 함**
 
-   지금 보면, nginx 설정 파일에 있는 port가 config.json에 있는 각 url의 port와 일치하지 않을 것이다.
+3. **360eavp의 default.json**
+   - `baseUrl`을 nginx 서버에 맞게 수정
+   - 예시:
+     ```json
+     "baseUrl": "https://10.20.13.157:8080/content/myvideo/"
+     ```
+   - IP와 Port는 **360eavp player의 nginx 설정과 동일**해야 함
 
-   반드시 일치시켜야 함
-3) 360eavp의 default.json 파일의 baseUrl을 nginx 서버에 맞게 수정
-   
-   예시: "https://10.20.13.157:8080/content/myvideo/" 이렇게 되어 있으면 ip랑 port를 맞게 수정해야 한다
-   
-   이때, port는 360eavp player의 nginx에서 설정한 ip 및 port와 반드시 같아야 한다.
+4. **dash.js 빌드**
+   - 루트에서 다음 명령어 실행:
+     ```bash
+     npm install --ignore-scripts
+     npm run webpack-build-modern && npm run webpack-build-legacy
+     ```
 
-4) dash.js의 루트에서 다음 명령어 실행:
-    npm install --ignore-scripts
-    npm run webpack-build-modern && npm run webpack-build-legacy
+---
+
+## 📂 VOD 권장 위치
+- **360 비디오**
+  - 압축 해제한 비디오를 `360eavp/content/myvideo/` (경로에 배치 여러 비디오 파일/디렉토리 포함 가능)
+
+- **DASH VOD**
+  - 압축 해제한 비디오를 **루트 디렉토리**에 배치
+```
