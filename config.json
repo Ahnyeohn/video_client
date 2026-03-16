@@ -1,22 +1,22 @@
 {
   "players": {
-    "dash": { "src": "https://10.20.13.157:8442/" },
-    "v360": { "src": "https://10.20.13.157:443/#/player" },
-    "hls":  { "src": "https://10.20.13.157:8440" }
+    "dash": { "src": "https://10.20.13.157:8087/" },
+    "v360": { "src": "https://10.20.13.157:8080/#/player" },
+    "hls":  { "src": "https://10.20.13.157:8440" } 
   },
   "experiments": [
     {
       "name": "DASH-VOD-1",
       "playerType": "dash",
       "playerSrc": "SRC_DASH",
-      "videoUrl": "https://10.20.13.157:8444/vod/stream.mpd",
+      "videoUrl": "https://10.20.13.157:8089/vod/stream.mpd",
       "playSeconds": 10
     },
     {
       "name": "360-VOD-1",
       "playerType": "v360",
       "playerSrc": "SRC_360",
-      "videoUrl": "https://10.20.13.157:443/default.json",
+      "videoUrl": "https://10.20.13.157:8080/default.json",
       "playSeconds": 10
     },
     {

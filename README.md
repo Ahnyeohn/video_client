@@ -16,8 +16,12 @@ sudo systemctl reload nginx
    지금 보면, nginx 설정 파일에 있는 port가 config.json에 있는 각 url의 port와 일치하지 않을 것이다.
 
    반드시 일치시켜야 함
-4) 360eavp의 default.json 파일의 baseUrl을 nginx 서버에 맞게 수정
+3) 360eavp의 default.json 파일의 baseUrl을 nginx 서버에 맞게 수정
    
    예시: "https://10.20.13.157:8080/content/myvideo/" 이렇게 되어 있으면 ip랑 port를 맞게 수정해야 한다
    
    이때, port는 360eavp player의 nginx에서 설정한 ip 및 port와 반드시 같아야 한다.
+
+4) dash.js의 루트에서 다음 명령어 실행:
+    npm install --ignore-scripts
+    npm run webpack-build-modern && npm run webpack-build-legacy
