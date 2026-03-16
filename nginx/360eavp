@@ -2,7 +2,7 @@ server {
   listen 80;
   server_name _;
 
-  root /home/n2sl/yeon/metric/video_client/360EAVP;
+  root /home/n2sl/yeon/metric/video_client/360eavp;
   index Index.html;
 
   location / {
@@ -22,7 +22,7 @@ server {
   ssl_certificate     /home/n2sl/yeon/metric/ssl/dev.crt;
   ssl_certificate_key /home/n2sl/yeon/metric/ssl/dev.key;
 
-  root /home/n2sl/yeon/metric/video_client/360EAVP;
+  root /home/n2sl/yeon/metric/video_client/360eavp;
   index Index.html;
 
   location / {
