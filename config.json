@@ -1,7 +1,7 @@
 {
   "players": {
     "dash": { "src": "https://10.20.13.157:8087/" },
-    "v360": { "src": "https://10.20.13.157:8080/#/player" },
+    "v360": { "src": "https://10.20.13.157:8082/#/player" },
     "hls":  { "src": "https://10.20.13.157:8085" } 
   },
   "experiments": [
@@ -16,7 +16,7 @@
       "name": "360-VOD-1",
       "playerType": "v360",
       "playerSrc": "SRC_360",
-      "videoUrl": "https://10.20.13.157:8080/default.json",
+      "videoUrl": "https://10.20.13.157:8082/default.json",
       "playSeconds": 10
     },
     {
