@@ -1,18 +1,9 @@
 server {
     listen 8087 ssl;
-    http2 on;
-
-    # UDP: QUIC (HTTP/3)
-    listen 8087 quic reuseport;
-    http3 on;
-
     server_name _;
 
     ssl_certificate     /home/n2sl/yeon/metric/ssl/dev.crt;
     ssl_certificate_key /home/n2sl/yeon/metric/ssl/dev.key;
-
-    # 브라우저가 h3로 업그레이드하도록 광고
-    add_header Alt-Svc 'h3=":8442"; ma=86400' always;
 
     root /home/n2sl/yeon/metric/video_client/dash.js;
     index samples/dash-if-reference-player/index.html;

@@ -1,16 +1,11 @@
 server {
     listen 8085 ssl;
-    http2 on;
 
-    listen 8085 quic reuseport;
-    http3 on;
     server_name _;
 
     ssl_certificate     /home/n2sl/yeon/metric/ssl2/dev.crt;
     ssl_certificate_key /home/n2sl/yeon/metric/ssl2/dev.key;
 
-    # 브라우저가 h3로 업그레이드하도록 광고
-    add_header Alt-Svc 'h3=":8444"; ma=86400' always;
     
     root /home/n2sl/yeon/metric/OvenPlayer/demo;
     index demo.html;
