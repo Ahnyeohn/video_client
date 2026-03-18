@@ -4,3 +4,6 @@
 [submodule "dash.js"]
 	path = dash.js
 	url = https://github.com/Ahnyeohn/dash.js.git
+[submodule "WIDE-VR"]
+	path = WIDE-VR
+	url = https://github.com/Ahnyeohn/WIDE-VR.git
